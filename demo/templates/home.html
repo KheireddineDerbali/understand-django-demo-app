@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    h2 {
+        color: #555;
+    }
+    ul {
+        list-style-type: square;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007BFF;
+    }
+</style>
+<body>
+    <h1>{{message}}</h1>
+    <h2>Fruits List Display on the home page </h2>
+    <ul>
+        {% for fruit in fruits %}
+        <li>{{fruit}}</li>
+        {% endfor %}
+    </ul>
+<a href="{% url 'fruits' %}">Go to Fruits Page</a>
+</body>
+</html>

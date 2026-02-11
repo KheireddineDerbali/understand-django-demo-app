@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>{{ message }}</h1>
+
+{% if fruits %}
+<table>
+    <tr>
+        <th>#</th>
+        <th>Fruit Name</th>
+    </tr>
+
+    {% for fruit in fruits %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ fruit|upper }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h2>Total Fruits: {{ fruits|length }}</h2>
+
+{% else %}
+<p>No fruits available.</p>
+{% endif %}
+
+<a href="{% url 'home' %}">Go to Home Page</a>
+
+</body>
+</html>
