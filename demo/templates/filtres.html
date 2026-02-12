@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exemples des filtres Django</h1>
+    <h2>Filtres texte</h2>
+    <!-- Met tout le texte en MAJUSCULES -->
+    <p>Upper : {{ nom|upper }} <!-- Résultat attendu : DJANGO FRAMEWORK --></p>
+    <!-- Met tout le texte en minuscules -->
+    <p>Lower : {{ nom|lower }} <!-- Résultat attendu : django framework --></p>
+    <!-- Met en majuscule la première lettre de chaque mot -->
+    <p>Title : {{ nom|title }} <!-- Résultat attendu : Django Framework --></p>
+    <!-- Met en majuscule la première lettre de la chaîne -->
+    <p>Capfirst : {{ phrase|capfirst }} <!-- Résultat attendu : Bonjour tout le monde --></p>
+    <!-- Tronque la chaîne après 20 caractères -->
+    <p>Truncate chars : {{ texte|truncatechars:20 }} <!-- Résultat attendu : Django est un frame...
+--></p>
+    <!-- Tronque la chaîne après 5 mots -->
+    <p>Truncate words : {{ texte|truncatewords:5 }} <!-- Résultat attendu : Django est un
+framework web... --></p>
+    <!-- Affiche une valeur par défaut si la variable est vide -->
+    <p>Default : {{ vide|default:"Valeur par défaut" }} <!-- Résultat attendu : Valeur par défaut -
+-></p>
+<h2>Filtres listes</h2>
+<!-- Renvoie la longueur de la liste -->
+    <p>Longueur : {{ fruits|length }} <!-- Résultat attendu : 3 --></p>
+    <!-- Affiche le premier élément de la liste -->
+    <p>Premier : {{ fruits|first }} <!-- Résultat attendu : Pomme --></p>
+    <!-- Affiche le dernier élément de la liste -->
+    <p>Dernier : {{ fruits|last }} <!-- Résultat attendu : Orange --></p>
+    <!-- Transforme la liste en texte séparé par une virgule -->
+    <p>Join : {{ fruits|join:", " }} <!-- Résultat attendu : Pomme, Banane, Orange --></p>
+    <h2>Filtres numériques</h2>
+    <!-- Additionne 10 à la valeur -->
+    <p>Addition : {{ prix|add:10 }} <!-- Résultat attendu : 110 --></p>
+    <!-- Affiche le nombre avec 2 décimales -->
+    <p>Floatformat : {{ note|floatformat:2 }} <!-- Résultat attendu : 14.57 --></p>
+    <h2>Filtres date</h2>
+    <!-- Formate la date selon le format jour/mois/année -->
+    <p>Date : {{ date|date:"d/m/Y" }} <!-- Résultat attendu : 02/02/2026 (si aujourd'hui est 2
+février 2026) --></p>
+    <!-- Affiche le temps écoulé depuis la date -->
+    <p>Temps écoulé : {{ date|timesince }} <!-- Résultat attendu : 0 jours (si date = aujourd'hui)
+--></p>
+    <h2>Filtres logiques</h2>
+    <!-- Affiche Oui ou Non selon la valeur booléenne -->
+    <p>YesNo : {{ actif|yesno:"Oui,Non" }} <!-- Résultat attendu : Oui --></p>
+    <!-- Ajoute un "s" si la liste contient plusieurs éléments -->
+    <p>Pluralize : {{ fruits|length }} fruit{{ fruits|pluralize }} <!-- Résultat attendu : 3 fruits --
+></p>
+<h2>Filtres sécurité</h2>
+<!-- Affiche le contenu HTML sans l’échapper -->
+    <p>Safe :</p>
+    {{ contenu_html|safe }} <!-- Résultat attendu : Texte HTML autorisé (en gras) -->
+    <h2>Filtres chaîne</h2>
+    <!-- Supprime les espaces du texte -->
+    <p>Cut : {{ nom|cut:" " }} <!-- Résultat attendu : djangoframework --></p>
+    <!-- Transforme le texte en slug (format URL) -->
+
+    <p>Slugify : {{ texte|slugify }} <!-- Résultat attendu : django-est-un-framework-web-
+puissant-et-securise --></p>
+
+    <!-- Lien dynamique vers la page d'accueil -->
+    <p><a href="{% url 'home' %}">Retour accueil</a></p>
+
+</body>
+
+</html>

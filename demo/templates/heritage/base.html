@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Site Django{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>Démo héritage Django</h1>
+        <nav>
+            <a href="/">Accueil</a> |
+            <a href="/heritage/page1/">Page 1</a> |
+            <a href="/heritage/page2/">Page 2</a>
+        </nav>
+        <hr>
+    </header>
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+    <hr>
+    <footer>
+        <p>Formation Django – Héritage de templates</p>
+    </footer>
+</body>
+
+</html>
