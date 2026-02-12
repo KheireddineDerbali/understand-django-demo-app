@@ -1,0 +1,32 @@
+{% extends "heritage/base.html" %}
+{% block content %}
+<h2>Formulaire AJAX avec POST</h2>
+<form id="monFormulaire" method="post">
+ {% csrf_token %}
+
+ <label>Nom :</label>
+ <input type="text" name="nom" placeholder="Votre nom"><br><br>
+
+ <label>Email :</label>
+ <input type="email" name="email" placeholder="Votre email"><br><br>
+ <button type="submit">Envoyer</button>
+</form>
+<p id="message"></p>
+<script>
+const form = document.getElementById("monFormulaire");
+const message = document.getElementById("message");
+form.addEventListener("submit", function(e) {
+ e.preventDefault(); // Empêche le rechargement de la page
+ const formData = new FormData(form);
+ fetch("/ajax/formulaire-post/", {
+ method: "POST",
+ body: formData
+ })
+ .then(response => response.json())
+ .then(data => {
+ message.innerText = data.message;
+ message.style.color = data.valide ? "green" : "red";
+ });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "heritage/base.html" %}
+
+{% block content %}
+<h2>Test des fichiers médias</h2>
+<p>Fichier uploadé :</p>
+<img src="{{ file_url }}" alt="Fichier uploadé">
+<p>Si l'image s'affiche, MEDIA_URL et MEDIA_ROOT fonctionnent correctement !</p>
+{% endblock %}

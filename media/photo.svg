@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <!-- Background -->
+  <rect width="300" height="200" fill="#e9ecef"/>
+  
+  <!-- Photo frame border -->
+  <rect x="20" y="20" width="260" height="160" fill="white" stroke="#495057" stroke-width="2"/>
+  
+  <!-- Simulated photo content -->
+  <rect x="30" y="30" width="240" height="80" fill="#87ceeb"/>
+  <circle cx="100" cy="60" r="20" fill="#ffeb3b"/>
+  
+  <!-- Green grass area -->
+  <rect x="30" y="110" width="240" height="60" fill="#7cb342"/>
+  
+  <!-- Text -->
+  <text x="150" y="180" font-size="14" fill="#495057" text-anchor="middle" font-family="Arial">Photo de test - Media Files</text>
+</svg>

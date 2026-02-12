@@ -1,0 +1,15 @@
+{% extends "heritage/base.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Test des fichiers statiques</h2>
+<p>Si le texte est rouge et en gras, le CSS fonctionne !</p>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<h3>Image statique :</h3>
+<img src="{% static 'images/logo.jpg' %}" alt="Logo">
+
+<p>Si vous voyez une image ci-dessus, les fichiers statiques sont correctement configurés !</p>
+
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock %}

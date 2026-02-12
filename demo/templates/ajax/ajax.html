@@ -1,0 +1,26 @@
+{% extends 'heritage/base.html' %}
+
+{% block content %}
+<h2>Vérification de nom via AJAX</h2>
+
+<p>Entrez un nom :</p>
+<input type="text" id="nom" placeholder="Entrez un nom">
+<p id="message"></p>
+
+<script>
+    const input = document.getElementById('nom');
+    const message = document.getElementById('message');
+
+    input.addEventListener("keyup", function () {
+
+        fetch(`/ajax/verifier-nom/?nom=${input.value}`)
+            .then(response => response.json())
+            .then(data => {
+                message.innerText = data.message;
+                message.style.color = data.valide ? 'green' : 'red';
+            })
+
+    });
+</script>
+
+{% endblock %}
